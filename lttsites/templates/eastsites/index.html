@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+<div class="list-group">
+{% if bgzsites %}
+{% for bgzsite in bgzsites %}
+    <div class="list-group-item">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{bgzsite.siteName}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{bgzsite.siteState}}</h6>
+          <p class="card-text">{{bgzsite.siteBriaf}}</p>
+          <a href="#" class="card-link">{{bgzsite.sitecity}}</a>
+          <a href="#" class="card-link">{{bgzsite.siteAddress}}</a>
+          <a href="{{bgzsite.siteFiles.url}}" class="card-link" download>
+            <button type="button" class="btn btn-primary">{{bgzsite.siteFiles}}</button>
+          </a>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+{% else %}
+<h1> there is no results for "{{query}}"</h1>
+{% endif %}
+</div>
+</div>
+<div class="col-6">
+  <div>{{MAP|safe}}</div>
+</div> 
+</div>
+</div>
+{% endblock %}
+

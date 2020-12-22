@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+<div class="list-group">
+{% for citySite in citySites %}
+    <div class="list-group-item">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{citySite.siteName}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{citySite.siteState}}</h6>
+          <p class="card-text">{{citySite.siteBriaf}}</p>
+          <a href="#" class="card-link">{{citySite.sitecity}}</a>
+          <a href="#" class="card-link">{{citySite.siteAddress}}</a>
+          <a href="{{citySite.siteFiles.url}}" class="card-link" download>
+            <button type="button" class="btn btn-primary">{{citySite.siteFiles}}</button>
+          </a>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+<div class="col-6">
+  <div>{{MAP|safe}}</div>
+</div> 
+</div>
+</div>
+{% endblock %}

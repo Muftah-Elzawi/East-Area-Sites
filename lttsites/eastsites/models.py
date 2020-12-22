@@ -1,10 +1,11 @@
 from django.db import models
 
-class Sites(models.Model):
+# Create your models here.
+class Eastsites(models.Model):
     siteName = models.CharField(max_length=100)
-    cellIds = models.TextField()
+    cellIds = models.JSONField()
     siteAddress = models.TextField()
-    location = models.TextField()
+    location = models.JSONField()
     siteFiles = models.FileField()
     siteConditions = models.TextField()
     siteBriaf = models.TextField()
@@ -13,5 +14,3 @@ class Sites(models.Model):
     sitecity = models.TextField()
     siteProvider = models.TextField()
     sitFiberNode = models.TextField()
-    
-
